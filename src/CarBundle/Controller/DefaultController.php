@@ -12,11 +12,22 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $cars = [
-            ['make' => 'Alfa-Romeo', 'name' => '145'],
-            ['make' => 'BMW', 'name' => 'X5'],
-            ['make' => 'Lamborghini', 'name' => 'Diablo'],
-        ];
+        $carRepository = $this->getDoctrine()->getRepository('CarBundle:Car');
+        $cars = $carRepository->findAll();
+
         return $this->render('CarBundle:Default:index.html.twig', ['cars' => $cars]);
+    }
+
+    /**
+     * @param $id
+     * @Route("/car/{id}", name="show_car")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showAction($id)
+    {
+        $carRepository = $this->getDoctrine()->getRepository('CarBundle:Car');
+        $car = $carRepository->find($id);
+
+        return $this->render('CarBundle:Default:show.html.twig', ['car' => $car]);
     }
 }
