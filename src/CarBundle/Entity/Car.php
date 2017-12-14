@@ -191,11 +191,11 @@ class Car
     /**
      * Set model
      *
-     * @param \CarBundle\Entity\Make $model
+     * @param \CarBundle\Entity\Model $model
      *
      * @return Car
      */
-    public function setModel(\CarBundle\Entity\Make $model = null)
+    public function setModel(\CarBundle\Entity\Model $model = null)
     {
         $this->model = $model;
 
@@ -205,7 +205,7 @@ class Car
     /**
      * Get model
      *
-     * @return \CarBundle\Entity\Make
+     * @return \CarBundle\Entity\Model
      */
     public function getModel()
     {
